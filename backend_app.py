@@ -30,12 +30,11 @@ def show_data_by_id(id):
     Queried by the id
     """
     try:
-        data_id = db_api.select_data_by_id(id)
+        id_data = db_api.select_data_by_id(id)
     except Exception as excep:
         app.logger.error('Error occurred while retrieving ID'
                          + str(excep))
-    print(type(data_id))
-    return render_template('index.html', rows=data_id)
+    return render_template('index.html', rows=id_data)
 
 
 if __name__ == "__main__":
